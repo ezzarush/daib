@@ -51,7 +51,7 @@
 	loop();
 	function loop(){
 		setTimeout(function(){
-			$.post("http://"+window.location.hostname+"/unda/proses/pesanMasuk_action.php");
+			$.post("http://"+window.location.hostname+"/daib/proses/pesanMasuk_action.php");
 			loop();
 		},10000)
 	}
