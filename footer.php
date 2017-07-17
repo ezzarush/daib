@@ -47,5 +47,14 @@
 <script src="template/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="template/dist/js/demo.js"></script>
+<script>
+	loop();
+	function loop(){
+		setTimeout(function(){
+			$.post("http://"+window.location.hostname+"/unda/proses/pesanMasuk_action.php");
+			loop();
+		},10000)
+	}
+</script>
 </body>
 </html>

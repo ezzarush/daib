@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2017 at 05:45 PM
+-- Generation Time: Jul 17, 2017 at 07:36 AM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `tb_pesan_keluar` (
   `status` varchar(25) NOT NULL,
   `status_informasi` text NOT NULL,
   `waktu_kirim` datetime NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tb_pesan_keluar`
@@ -251,7 +251,37 @@ CREATE TABLE IF NOT EXISTS `tb_pesan_keluar` (
 INSERT INTO `tb_pesan_keluar` (`id_pesankeluar`, `process_id`, `nomortujuan`, `pesan`, `status`, `status_informasi`, `waktu_kirim`) VALUES
 (1, '596a384b04b37', '081295886962', 'test kirim sms', 'success', '', '2017-07-15 17:07:11'),
 (2, '596a38618adf5', '0812958869622', 'test error', 'success', '', '2017-07-15 17:07:33'),
-(3, '596a38802151c', '532761598789719236986876', 'test error 2', 'error', 'Nomor  532761598789719236986876 tidak sesuai format (kurang dari 10 karakter / lebih dari 13 karakter)', '2017-07-15 17:07:04');
+(3, '596a38802151c', '532761598789719236986876', 'test error 2', 'error', 'Nomor  532761598789719236986876 tidak sesuai format (kurang dari 10 karakter / lebih dari 13 karakter)', '2017-07-15 17:07:04'),
+(4, '596c311f9e802', '081295886962', 'kodok2', 'success', '', '2017-07-17 05:07:07'),
+(5, '596c31f29f2a9', '081295886962', 'kodok3', 'success', '', '2017-07-17 05:07:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pesan_masuk`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_pesan_masuk` (
+`id_pesanmasuk` int(11) NOT NULL,
+  `id_pesan_mesabot` int(100) NOT NULL,
+  `text` text NOT NULL,
+  `pengirim` varchar(15) NOT NULL,
+  `status_mesabot` int(11) NOT NULL,
+  `status_local` varchar(200) NOT NULL,
+  `created_at_mesabot` datetime NOT NULL,
+  `updated_at_mesabot` datetime NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+
+--
+-- Dumping data for table `tb_pesan_masuk`
+--
+
+INSERT INTO `tb_pesan_masuk` (`id_pesanmasuk`, `id_pesan_mesabot`, `text`, `pengirim`, `status_mesabot`, `status_local`, `created_at_mesabot`, `updated_at_mesabot`) VALUES
+(23, 20757, 'Okeee ', '+6281295886962', 0, 'Format Salah', '2017-07-16 22:30:15', '2017-07-16 22:31:01'),
+(24, 20778, 'DAIB#8', '+6281295886962', 0, 'ID Berhasil Ditemukan', '2017-07-17 11:45:36', '2017-07-17 11:46:02'),
+(25, 20779, 'DAIB#8', '+6281295886962', 0, 'ID Berhasil Ditemukan', '2017-07-17 11:48:12', '2017-07-17 11:49:01'),
+(26, 20780, 'DAIB#8', '+6281295886962', 0, 'ID Berhasil Ditemukan', '2017-07-17 11:50:43', '2017-07-17 11:51:01'),
+(27, 20758, 'Siap', '+6281255461907', 0, 'Format Salah', '2017-07-16 22:59:43', '2017-07-16 23:00:02');
 
 --
 -- Indexes for dumped tables
@@ -312,6 +342,12 @@ ALTER TABLE `tb_pesan_keluar`
  ADD PRIMARY KEY (`id_pesankeluar`);
 
 --
+-- Indexes for table `tb_pesan_masuk`
+--
+ALTER TABLE `tb_pesan_masuk`
+ ADD PRIMARY KEY (`id_pesanmasuk`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -359,7 +395,12 @@ MODIFY `id_penjualan` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 -- AUTO_INCREMENT for table `tb_pesan_keluar`
 --
 ALTER TABLE `tb_pesan_keluar`
-MODIFY `id_pesankeluar` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_pesankeluar` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tb_pesan_masuk`
+--
+ALTER TABLE `tb_pesan_masuk`
+MODIFY `id_pesanmasuk` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
