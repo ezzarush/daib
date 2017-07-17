@@ -7,12 +7,12 @@ require_once('config/database.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Pesan Masuk
+        Pesan Terkirim
         <small>Panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Pesan Masuk</li>
+        <li class="active">Pesan Terkirim</li>
       </ol>
     </section>
 
@@ -34,25 +34,30 @@ require_once('config/database.php');
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Pengirim</th>
-                  <th>Text</th>
-                  <th>Waktu Terima</th>
+                  <th>Nomor Tujuan</th>
+                  <th>Waktu Kirim</th>
                   <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
 				<?php
-				$query = "SELECT * FROM tb_pesan_masuk";
+				$query = "SELECT * FROM tb_pesan_keluar";
 				$hasil = mysqli_query($koneksi,$query);
 				$num=1;
 				while($row = mysqli_fetch_array($hasil)){
 					?>
 					<tr>
 					  <td><?php echo $num; ?></td>
-					  <td><?php echo $row['pengirim']; ?></td>
-					  <td><?php echo $row['text']; ?></td>
-					  <td><?php echo $row['updated_at_mesabot']; ?></td>
-					  <td><?php echo $row['status_local']; ?></td>
+					  <td><?php echo $row['nomortujuan']; ?></td>
+					  <td><?php echo $row['waktu_kirim']; ?></td>
+					  <td align="center"><?php if($row['status']=='success'){
+						  echo '<button type="button" class="btn btn-info btn-xs">Sukses Terkirim</button>';
+					  }else if($row['status']=='error'){
+						  $pesan_error = $row['status_informasi'];
+						  echo '<button type="button" class="btn btn-danger btn-xs">Gagal Terkirim <br/>['.$pesan_error.']</button>';
+					  }else{
+						  echo '<button type="button" class="btn btn-default btn-xs">Pesan Tidak Diketahui</button>';
+					  } ?></td>
 					</tr>
 					<?php
 				$num++;	
@@ -61,11 +66,11 @@ require_once('config/database.php');
                 </tbody>
                 <tfoot>
                 <tr>
-				  <th>No</th>
-                  <th>Pengirim</th>
-                  <th>Text</th>
-                  <th>Waktu Terima</th>
+                  <th>No</th>
+                  <th>Nomor Tujuan</th>
+                  <th>Waktu Kirim</th>
                   <th>Status</th>
+                  
                 </tr>
                 </tfoot>
               </table>

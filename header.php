@@ -131,17 +131,21 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+        
+		<li <?php if($_SERVER['REQUEST_URI']=='/unda/index.php' || $_SERVER['REQUEST_URI']=='/unda/'){echo 'class="active"';} ?>>
           <a href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li><a href="kirimPesan.php"><i class="fa fa-envelope"></i> <span>Kirim Pesan</span></a></li>
-        <li><a href="pesanMasuk.php"><i class="fa fa-envelope"></i> <span>Pesan Masuk</span></a></li>
-        <li><a href="manajemenPelanggan.php"><i class="fa fa-user"></i> <span>Manajemen Pelanggan</span></a></li>
-        <li><a href="dokumentasi.php"><i class="fa fa-book"></i> <span>Dokumentasi</span></a></li>
-        <li><a href="about.php">&nbsp;<i class="fa fa-info"></i><span>&nbsp;Info</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/kirimPesan.php'){echo 'class="active"';} ?>><a href="kirimPesan.php"><i class="fa fa-envelope"></i> <span>Kirim Pesan</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/pesanTerkirim.php'){echo 'class="active"';} ?>><a href="pesanTerkirim.php"><i class="fa fa-envelope"></i> <span>Pesan Terkirim</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/pesanMasuk.php'){echo 'class="active"';} ?>><a href="pesanMasuk.php"><i class="fa fa-envelope"></i> <span>Pesan Masuk</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/manajemenPelanggan.php'){echo 'class="active"';} ?>><a href="manajemenPelanggan.php"><i class="fa fa-user"></i> <span>Manajemen Pelanggan</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/manajemenPesanan.php'){echo 'class="active"';} ?>><a href="manajemenPesanan.php"><i class="fa fa-user"></i> <span>Manajemen Pesanan</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/dokumentasi.php'){echo 'class="active"';} ?>><a href="dokumentasi.php"><i class="fa fa-book"></i> <span>Dokumentasi</span></a></li>
+        <li <?php if($_SERVER['REQUEST_URI']=='/unda/about.php'){echo 'class="active"';} ?>><a href="about.php">&nbsp;<i class="fa fa-info"></i><span>&nbsp;Info</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
+  

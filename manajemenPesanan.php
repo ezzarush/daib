@@ -7,12 +7,12 @@ require_once('config/database.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Pesan Masuk
+        Manajemen Pesanan
         <small>Panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Pesan Masuk</li>
+        <li class="active">Manajemen Pesanan</li>
       </ol>
     </section>
 
@@ -34,25 +34,31 @@ require_once('config/database.php');
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Pengirim</th>
-                  <th>Text</th>
-                  <th>Waktu Terima</th>
+                  <th>ID Pemesanan</th>
+                  <th>Tanggal Pemesanan</th>
+                  <th>ID Pelanggan</th>
+                  <th>Ozon</th>
+                  <th>Ro</th>
+                  <th>Conv</th>
                   <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
 				<?php
-				$query = "SELECT * FROM tb_pesan_masuk";
+				$query = "SELECT * FROM tb_pemesanan_new";
 				$hasil = mysqli_query($koneksi,$query);
 				$num=1;
 				while($row = mysqli_fetch_array($hasil)){
 					?>
 					<tr>
 					  <td><?php echo $num; ?></td>
-					  <td><?php echo $row['pengirim']; ?></td>
-					  <td><?php echo $row['text']; ?></td>
-					  <td><?php echo $row['updated_at_mesabot']; ?></td>
-					  <td><?php echo $row['status_local']; ?></td>
+					  <td><?php echo $row['id_pemesanan']; ?></td>
+					  <td><?php echo $row['tgl_pemesanan']; ?></td>
+					  <td><?php echo $row['id_pelanggan']; ?></td>
+					  <td><?php echo $row['ozon']; ?></td>
+					  <td><?php echo $row['ro']; ?></td>
+					  <td><?php echo $row['conv']; ?></td>
+					  <td><?php echo $row['status']; ?></td>
 					</tr>
 					<?php
 				$num++;	
@@ -61,10 +67,13 @@ require_once('config/database.php');
                 </tbody>
                 <tfoot>
                 <tr>
-				  <th>No</th>
-                  <th>Pengirim</th>
-                  <th>Text</th>
-                  <th>Waktu Terima</th>
+                  <th>No</th>
+                  <th>ID Pemesanan</th>
+                  <th>Tanggal Pemesanan</th>
+                  <th>ID Pelanggan</th>
+                  <th>Ozon</th>
+                  <th>Ro</th>
+                  <th>Conv</th>
                   <th>Status</th>
                 </tr>
                 </tfoot>

@@ -44,7 +44,7 @@ if($kirimPesanOpsi == 'individu'){
 }
 
 $mesabot = new Mesabot();
-$mesabot->sms($data);
+$mesabot->sms($data,'messages','POST');
 
 $status = $mesabot->response()->messages['status'];
 
@@ -60,7 +60,7 @@ if($status == 'success'){
 	mysqli_query($koneksi,$query);
 }
 
-$home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/unda/pesanMasuk.php';
+$home_url = 'http://' . $_SERVER['HTTP_HOST'] . '/unda/pesanTerkirim.php';
 header('Location: ' . $home_url);
 
 ?>

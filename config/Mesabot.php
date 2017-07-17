@@ -14,9 +14,9 @@ class Mesabot{
     public function response(){
         return $this->response;
     }
-    public function sms($data){
-        $endpoint = 'messages';
-        $method = 'POST';
+    public function sms($data,$endpoint=null,$method=null){
+        $endpoint = $endpoint;
+        $method = $method;
         $response = $this->api($endpoint,$method,$data);
     }
     private function api($endpoint,$method,$data = null){
