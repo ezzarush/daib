@@ -1,5 +1,6 @@
 <?php
 require_once('header.php');
+require_once('config/database.php');
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -46,7 +47,18 @@ require_once('header.php');
 					</div>
 				  <div class="form-group">
 				  <label>Masukkan Nomor Tujuan:</label>
-					<input type="number" id="idNomorTujuan" class="form-control" name="nomorTujuan" required placeholder="Contoh: 0812 3456 7899">
+					<select class="form-control" id="idNomorTujuan" name="nomorTujuan" required>
+						<?php
+							$query = "SELECT * FROM tb_pelanggan_new";
+							$result = mysqli_query($koneksi,$query);
+							while($row = mysqli_fetch_array($result)){
+								echo '<option value='.$row['hp_pelanggan'].'>'.$row['nama_pelanggan'].'</option>';
+							}
+						?>
+					</select>
+					<!--
+						<input type="number" id="idNomorTujuan" class="form-control" name="nomorTujuan" required placeholder="Contoh: 0812 3456 7899">
+					-->
 				  </div>
 				  <div class="form-group">
 						<textarea required id="compose-textarea" name="pesan" class="form-control" style="height: 300px"></textarea>
@@ -74,9 +86,10 @@ require_once('footer.php');
 ?>
 <script>
   $("#kirimPesanOpsi1").click(function(){
-	  $("#idNomorTujuan").attr("disabled",false);
+	  $("#idNomorTujuan").attr("disabled",false).trigger("chosen:updated");
   })
   $("#kirimPesanOpsi2").click(function(){
-	  $("#idNomorTujuan").attr("disabled",true);
+	  $("#idNomorTujuan").attr("disabled",true).trigger("chosen:updated");
   })
+  $("#idNomorTujuan").chosen();
 </script>
