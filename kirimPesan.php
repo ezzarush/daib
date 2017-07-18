@@ -52,7 +52,7 @@ require_once('config/database.php');
 							$query = "SELECT * FROM tb_pelanggan_new";
 							$result = mysqli_query($koneksi,$query);
 							while($row = mysqli_fetch_array($result)){
-								echo '<option value='.$row['hp_pelanggan'].'>'.$row['nama_pelanggan'].'</option>';
+								echo '<option value='.$row['hp_pelanggan'].'>'.$row['id_pelanggan'].' - '.$row['nama_pelanggan'].'</option>';
 							}
 						?>
 					</select>
